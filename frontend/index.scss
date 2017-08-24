@@ -1,0 +1,308 @@
+$secondary-color: #125688;
+$platzigram-red: #f44336;
+
+@import "node_modules/materialize-css/sass/materialize.scss";
+@import "./loader";
+
+@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      #{"-" + $vendor + "-" + $property}: #{$value};
+    }
+  }
+  #{$property}: #{$value};
+}
+
+body{
+  background: #fafafa;
+  color: $secondary-color;
+  font-family: 'Montserrat', sans-serif;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#main-container{
+
+}
+
+.btn-user-options{
+  background: transparent;
+  transition: all 2s;
+}
+.btn-user-options:hover{
+  background: transparent;
+  font-size: 1.8rem;
+}
+
+.drp-user-options{
+  margin-top: 60px;
+}
+
+.iphone{
+  max-width: 100%;
+}
+
+footer{
+  text-transform: uppercase;
+  font-size: 12px;  
+}
+
+.login-box, .signup-box{
+  background-color: white;
+  border: 1px solid #edeeee;
+  border-radius: 3px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.signup-box .platzigram{
+  font-family: 'oleo script';
+  font-size: 42px;
+}
+
+.platzigram{
+  font-family: 'oleo script';
+  font-size: 42px;
+  color: $secondary-color !important;
+}
+
+.signup-form{
+  width: 65%;
+  margin: 0 auto;
+}
+.signup-form h2{
+  color: #a5a7aa;
+  font-size: 1.2rem;
+}
+
+.btn-fb{
+  font-size: .7rem;
+}
+
+.btn-fb{
+  background-color: #4090db !important;
+  font-size: .9rem;
+}
+
+.btn-fb:hover{
+  background-color: #2d6599;
+}
+
+.btn-signup{
+  background-color: $secondary-color;
+}
+
+.btn-signup:hover{
+  background-color: #41779F;
+}
+
+.header{
+  background-color: white;
+  color: $secondary-color;
+  box-shadow: none;
+  border-bottom: 1px solid #edeeee;
+}
+
+.timeline{
+   padding: 30px 0px;      
+}
+
+.landing{
+  margin: 30px auto;
+}
+
+$avatar-size: 48px;
+
+.avatar{
+  max-width: $avatar-size;
+  max-height: $avatar-size;
+  border-radius: 50%;
+  float:left;
+  margin-right: 12px;
+
+}
+
+
+.card small.time{
+  line-height: $avatar-size;
+}
+
+.card p{
+  padding: 20px 0;
+}
+
+.card .likes{
+  line-height: 30px;
+  margin-left: 12px;
+}
+
+.card i{
+  font-size: 30px;
+}
+
+.card .username{
+  color: $secondary-color;
+}
+
+.card .fa-heart-o{
+  color: $secondary-color;
+  display: none;
+}
+.card .fa-heart{
+  color: #f44336;
+  display: none;
+}
+
+.card .fa-heart-o:hover{
+  color: #ef5350;
+}
+
+.card .liked{
+
+  .fa-heart{
+      display: block;
+    }
+
+  .fa-heart-o{
+      display: none;
+    }
+
+}
+
+.card .unliked{
+
+  .fa-heart{
+      display: none;
+    }
+
+  .fa-heart-o{
+      display: block;
+    }
+
+}
+
+
+.form-upload{
+
+  span, button{
+    color: white;
+  }
+
+  .file-upload{
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+  }
+
+  input{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+
+  i{
+    margin-right: 10px;
+  }
+}
+
+//USER PROFILE
+
+
+.user-page {
+  margin-top: 30px;
+
+  .heading {
+    margin-bottom: 20px;
+  }
+
+  .picture-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    margin-bottom: 20px;
+    position: relative;
+
+    &:hover {
+      .picture {
+        @include prefix(filter, blur(5px) grayscale(100%));
+      }
+
+      .likes {
+        display: flex;
+      }
+    }
+
+    .picture {
+      margin-bottom: 20px;
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .likes {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      color: $platzigram-red;
+      font-size: 34px;
+      display: none
+    }
+
+    .fa-heart {
+      margin-right: 8px;
+      display: inline-block;
+    }
+  }
+}
+
+.modal {
+  img {
+    max-height: 100%;
+    max-width: 90%;
+  }
+
+  .fa-heart {
+    display: inline-block;
+  }
+}
+
+.like-heart {
+  font-size: 10em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  transition: all .1s ease;
+  opacity: 0;
+}
+
+.like-heart.liked {
+  color: $platzigram-red;
+  font-size: 12em;
+  display: block;
+  transition: all .5s ease;
+  opacity: 1;
+}
+
+.modal{
+  .fa-heart {
+    display: inline-block;
+    color: $platzigram-red;
+  }
+}
+
