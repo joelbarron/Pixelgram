@@ -7,7 +7,7 @@ var title = require('title')
 
 // crear la ruta
 page('/signin', function (ctx, next) {
-      title('Platzigram - Signin')
+      title('Pixelgram - Signin')
       var main = document.getElementById('main-container')
       // asignar el template
       empty(main).appendChild(template)

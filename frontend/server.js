@@ -2,8 +2,33 @@
 var  express = require('express')
 var multer = require('multer')
 var ext = require('file-extension')
+var config = require('./config')
+var aws = require('aws-sdk')
+var multerS3 = require('multer-s3')
+
+
+//objeto aws S3 
+var s3 = new aws.S3({
+  accessKeyId: config.aws.accessKey,
+  secretAccessKey: config.aws.secretKey
+})
 
 //almacenar las fotografias
+var storage = multerS3({
+  s3: s3,
+  bucket: 'pixelgram-storage',
+  acl: 'public-read',
+  metadata: function (req, file, cb) {
+    cb(null, { fieldName: file.fieldname })
+  },
+  key: function(req, file, cb) {
+    cb(null, +Date.now()+ '.' + ext(file.originalname))
+  }
+})
+
+/*
+
+almacenar las fotografias local
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './')
@@ -12,7 +37,13 @@ var storage = multer.diskStorage({
     cb(null, +Date.now()+ '.' + ext(file.originalname))
   }
 })  
+
+*/
+
 var upload = multer({ storage: storage }).single('picture')
+
+
+//                  EXPRESS
 
 
 // asignar auna variable
@@ -69,6 +100,7 @@ app.get('/api/pictures', function(req, res) {
 app.post('/api/pictures', function(req, res) {
   upload(req, res, function (err) {
     if(err) {
+      console.log(err)
       return res.send(500, "Error uploading file")
     }
 

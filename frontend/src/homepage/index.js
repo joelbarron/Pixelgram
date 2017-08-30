@@ -8,7 +8,7 @@ var header = require('../header')
 var axios = require('axios')
 
 page('/',header, loading, loadPicturesAsyncLoad, function (ctx, next) {
-      title('Platzigram - Home')
+      title('Pixelgram - Home')
       var main = document.getElementById('main-container')
 
       empty(main).appendChild(template(ctx.pictures))
