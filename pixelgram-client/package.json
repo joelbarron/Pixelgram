@@ -1,0 +1,36 @@
+{
+  "name": "pixelgram-client",
+  "version": "1.0.0",
+  "description": "Pixelgram API client",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "npm run lint && ava"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joelbarron/Pixelgram"
+  },
+  "keywords": [
+    "Pixelgram",
+    "API",
+    "Cient"
+  ],
+  "author": "Joel Barrón <jbarron_web@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "babel-eslint": "^7.2.3",
+    "nock": "^9.0.14",
+    "standard": "^10.0.3",
+    "uuid-base62": "^0.1.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
