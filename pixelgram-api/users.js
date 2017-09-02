@@ -5,10 +5,15 @@ import HttpHash from 'http-hash'
 import Db from 'pixelgram-db'
 import config from './config'
 import DbStub from './test/stub/db'
+import gravatar from 'gravatar'
+var util = require('util')
 
 // TRAER LA VARIABLE DE ENTORNO PARA DECIDIR LA DB A USAR
-const env = process.env.NODE_ENV || 'test'
+const env = process.env.NODE_ENV
 let db = new Db(config.db)
+console.log(`La variable de entorno NODE_ENV: ${env}`)
+console.log(`La variable de entorno PIXELGRAM_SECRET: ${config.secret}`)
+console.log(`La variable de setup DB: ${config.db.setup}`)
 
 // SI ES PRUEBA LLAMAMOS NUESTRA CLASE STUB
 if (env === 'test') {
@@ -18,7 +23,7 @@ if (env === 'test') {
 // OBJ PARA LOS ENDPOINTS
 const hash = HttpHash()
 
-// ENDPOINT POST :: GUARDAR IMAGENES
+// ENDPOINT POST :: GUARDAR USERS
 hash.set('POST /', async function postUser (req, res, params) {
   let user = await json(req)
   await db.connect()
@@ -31,12 +36,24 @@ hash.set('POST /', async function postUser (req, res, params) {
   send(res, 201, created)
 })
 
-// ENDPOINT GET :: OBTENER USERS
+// ENDPOINT GET :: OBTENER USERS Y SUS IMAGENES
 hash.set('GET /:username', async function getUser (req, res, params) {
   let username = params.username
   await db.connect()
   let user = await db.getUser(username)
+   // obtener imagenes
+  let images = await db.getImagesByUser(username)
+
   await db.disconnect()
+
+  // obtener un avatar de GRAVATAR
+  user.avatar = gravatar.url(user.email)
+
+  if (images) {
+    user.pictures = images
+  } else {
+    user.pictures = 'nothing to send'
+  }
 
   delete user.email
   delete user.password

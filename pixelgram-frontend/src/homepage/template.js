@@ -4,9 +4,8 @@ var yo = require('yo-yo')
 var layout = require('../layout')
 var picture = require('../picture-card')
 var translate = require('../translate')
+var axios = require('axios')
 var request = require('superagent')
-
-
 
 module.exports = function (pictures) {
 
@@ -26,16 +25,43 @@ module.exports = function (pictures) {
       </div>
     </div>
     <div class="row">
-      <div class="col s12 m10 offset-m1 l6 offset-l3">
+    <div class="col s12 m10 offset-m1 l6 offset-l3">
 
-        ${pictures.map(function(pic){
-          return picture(pic)
-        })}
+    ${pictures.map(function(pic){
+      return picture(pic)
+    })}
 
-      </div>
+    </div>
     </div>
   </div>
   `
+
+  function onsubmit(ev) {
+    ev.preventDefault()
+
+    // obtener todo el form
+    var data = new FormData(this)
+
+    // axios.post('/api/pictures', data, {
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data'
+    //   }
+    // })
+    // .then(function (res) {
+    //   console.log(res);
+    // })
+    // .catch(function (err) {
+    //   console.log(err);
+    // })
+
+    request
+    .post('/api/pictures')
+    .send(data)
+    .end(function (err, res) {
+      console.log(arguments);
+    })
+
+   }
 
   function toggleButtons() {
     document.getElementById('fileName').classList.toggle('hide')
@@ -52,19 +78,5 @@ module.exports = function (pictures) {
     toggleButtons()
   }
 
-  function onsubmit(ev) {
-    ev.preventDefault()
-
-    //obtener todo el form
-    var data = new FormData(this)
-
-    //hacer el request
-    request
-      .post('/api/pictures')
-      .send(data)
-      .end(function (err, res) {
-        console.log(arguments)
-      })
-  }
   return layout(el)
 }

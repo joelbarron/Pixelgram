@@ -9,10 +9,12 @@ var signupForm = yo `
 <div class="col s12 m7">
   <div class="row">
     <div class="signup-box">
-      <h1 class="platzigram">Platzigram</h1>
-      <form class="signup-form">
+      <h1 class="platzigram">Pixelgram</h1>
+      <form class="signup-form" action="/signup" method="POST">
         <h2>${translate.message('signup.subheading')}</h2>
-        <div class="section"><a href="" class="btn btn-fb hidden-on-small-only">${translate.message('signup.facebook')}</a><a href="" class="btn btn-fb hide-on-med-and-up">${translate.message('signup.text')}</a></div>
+        <div class="section">
+        <a href="/auth/facebook" rel="external" class="btn btn-fb hidden-on-small-only">${translate.message('signup.facebook')}</a>
+        <a href="/auth/facebook" rel="external" class="btn btn-fb hide-on-med-and-up">${translate.message('signup.text')}</a></div>
         <div class="divider"></div>
         <div class="section">
           <input type="email" name="email" value="" placeholder="${translate.message('email')}"/>

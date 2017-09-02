@@ -10,6 +10,9 @@ import utils from './lib/utils'
 // TRAER LA VARIABLE DE ENTORNO PARA DECIDIR LA DB A USAR
 const env = process.env.NODE_ENV || 'test'
 let db = new Db(config.db)
+console.log(`La variable de entorno NODE_ENV: ${env}`)
+console.log(`La variable de entorno PIXELGRAM_SECRET: ${config.secret}`)
+console.log(`La variable de setup DB: ${config.db.setup}`)
 
 // SI ES PRUEBA LLAMAMOS NUESTRA CLASE STUB
 if (env === 'test') {

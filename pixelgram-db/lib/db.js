@@ -57,7 +57,7 @@ class Db {
 
       if (dbTables.indexOf('images') === -1) {
         yield r.db(db).tableCreate('images').run(conn)
-        yield r.db(db).table('images').indexCreate('userId').run(conn)
+        yield r.db(db).table('images').indexCreate('userId', { multi: true }).run(conn)
       }
 
       if (dbTables.indexOf('users') === -1) {
@@ -296,8 +296,14 @@ class Db {
         index: 'userId'
       }).orderBy(r.desc('createdAt')).run(conn)
 
+      let result
+
       // asiganrlo a un array
-      let result = yield images.toArray()
+      try {
+        result = yield images.toArray()
+      } catch (error) {
+        return Promise.reject(new Error(error).asCallback(callback))
+      }
 
       return Promise.resolve(result)
     })

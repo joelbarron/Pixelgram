@@ -6751,11 +6751,11 @@ body {
 
 .btn-user-options {
   background: transparent;
+  font-size: 1rem;
   transition: all 2s; }
 
 .btn-user-options:hover {
-  background: transparent;
-  font-size: 1.8rem; }
+  background: transparent; }
 
 .drp-user-options {
   margin-top: 60px; }

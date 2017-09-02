@@ -11,6 +11,11 @@ import utils from './lib/utils'
 const env = process.env.NODE_ENV || 'test'
 let db = new Db(config.db)
 
+// DEBUG PARA LAS VARIABLES DE ENTORNO Y  CONFIGURACION
+console.log(`La variable de entorno NODE_ENV: ${env}`)
+console.log(`La variable de entorno PIXELGRAM_SECRET: ${config.secret}`)
+console.log(`La variable de setup DB: ${config.db.setup}`)
+
 // SI ES PRUEBA LLAMAMOS NUESTRA CLASE STUB
 if (env === 'test') {
   db = new DbStub()
@@ -30,7 +35,7 @@ hash.set('POST /', async function authenticate (req, res, params) {
     return send(res, 401, { error: 'inavalid credentials' })
   }
 
-  let token = await utils.signToken({ username: credentials.username }, config.secret)
+  let token = await utils.signToken({ userId: credentials.username }, config.secret)
 
   send(res, 200, token)
 })
