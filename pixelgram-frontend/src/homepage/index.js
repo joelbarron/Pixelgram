@@ -3,9 +3,22 @@ var page = require('page')
 var title = require('title')
 var empty = require('empty-element')
 var template = require('./template')
+var pictureCard = require('../picture-card')
 var header = require('../header')
 var axios = require('axios')
 var utils =require('../utils')
+var io = require('socket.io-client')
+
+
+var socket = io.connect('http://localhost:5151')
+
+// cada vez que recibimos un evento del backend lo agregamos al inicio
+socket.on('image', function (image) {
+  var picturesEl = document.getElementById('pictures-container')
+  var first = picturesEl.firstChild
+  var imgHtml = pictureCard(image)
+  picturesEl.insertBefore(imgHtml, first)
+})
 
 page('/', utils.loadAuth, header, loading, loadPictures, function (ctx, next) {
   title('Pixelgram - Home')

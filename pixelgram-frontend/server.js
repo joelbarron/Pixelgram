@@ -56,7 +56,7 @@ var upload = multer({ storage: storage }).single('picture')
 
 var app = express()
 
-app.set(bodyParser.json()) // libreria para procesar los request y poderlos manejar
+app.use(bodyParser.json()) // libreria para procesar los request y poderlos manejar
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
@@ -74,17 +74,16 @@ app.use(expressSession({
 app.use(passport.initialize())
 app.use(passport.session())
 
+// asignar la libreria de pug para el renderizado de vistas
+app.set('view engine', 'pug')
+// asignar la ubicacion de los archivos estaticos
+app.use(express.static('public'))
+
 // configuracion de passport
 passport.use(auth.localStrategy)
 passport.use(auth.facebookStrategy)
 passport.deserializeUser(auth.deserializeUser)
 passport.serializeUser(auth.serializeUser)
-
-
-// asignar la libreria de pug para el renderizado de vistas
-app.set('view engine', 'pug')
-// asignar la ubicacion de los archivos estaticos
-app.use(express.static('public'))
 
 
 //            RUTAS
@@ -143,9 +142,6 @@ app.get('/whoami', function (req, res) {
   res.json({ auth: false })
 })
 
-
-
-
 // PICTURES
 app.get('/api/pictures', function(req, res) {
 
@@ -201,11 +197,11 @@ app.get('/api/user/:username', function(req, res) {
 })
 
 app.get('/:username', function(req, res) {
-  res.render('index', { title: `Pixelgram - ${req.params.name || req.params.username}` })
+  res.render('index', { title: `Pixelgram - ${req.params.username}` })
 })
 
 app.get('/:username/:id', function(req, res) {
-  res.render('index', { title: `Pixelgram - ${req.params.name || req.params.username}` })
+  res.render('index', { title: `Pixelgram - ${req.params.username}` })
 })
 
 
@@ -216,9 +212,6 @@ app.listen(config.port, function(err){
 
   console.log(`pixelgram escuchando en el puerto ${config.port}`)
 })
-
-
-
 
 //metodo para garantizar la autenticacion
 function ensureAuth (req, res, next) {

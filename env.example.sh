@@ -1,0 +1,7 @@
+export AWS_ACCESS_KEY=""
+export AWS_SECRET_KEY=""
+export FACEBOOK_CLIENT_ID=""
+export FACEBOOK_CLIENT_SECRET=""
+export NODE_ENV="develop"
+export PORT="5050"
+# export NODE_ENV="production"
