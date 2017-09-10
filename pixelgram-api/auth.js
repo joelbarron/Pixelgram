@@ -8,7 +8,7 @@ import DbStub from './test/stub/db'
 import utils from './lib/utils'
 
 // TRAER LA VARIABLE DE ENTORNO PARA DECIDIR LA DB A USAR
-const env = process.env.NODE_ENV || 'test'
+const env = process.env.NODE_ENV || 'develop' // test (tambien para ejecutar las pruebas)
 let db = new Db(config.db)
 
 // DEBUG PARA LAS VARIABLES DE ENTORNO Y  CONFIGURACION

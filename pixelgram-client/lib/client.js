@@ -7,9 +7,9 @@ class Client {
   constructor (options) {
     this.options = options || {
       endpoints: {
-        pictures: 'http://api.pixelgram.test/picture',
-        users: 'http://api.pixelgram.test/user',
-        auth: 'http://api.pixelgram.test/auth'
+        pictures: 'http://localhost:5000',
+        users: 'http://localhost:5001',
+        auth: 'http://localhost:5002'
       }
     }
   }

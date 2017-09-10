@@ -9,7 +9,7 @@ import gravatar from 'gravatar'
 var util = require('util')
 
 // TRAER LA VARIABLE DE ENTORNO PARA DECIDIR LA DB A USAR
-const env = process.env.NODE_ENV
+const env = process.env.NODE_ENV || 'develop' // test (tambien para ejecutar las pruebas)
 let db = new Db(config.db)
 console.log(`La variable de entorno NODE_ENV: ${env}`)
 console.log(`La variable de entorno PIXELGRAM_SECRET: ${config.secret}`)
