@@ -1,0 +1,56 @@
+---
+- include: deps.yml
+- name: "Clean other rethinkdb instances"
+  command: bash -c "rm *"
+    chdir="/etc/rethinkdb/instances.d"
+- name: "Installing our rethinkdb with configuration for pixelgram project"
+  copy:
+    src="upstart/pixelgram-db-instance.conf"
+    dest="/etc/rethinkdb/instances.d"
+    mode=u=rw,g=r
+- name: "Restarting Rethinkdb"
+  service:
+    name=rethinkdb
+    state=restarted
+- name: "Copying Projects"
+  copy:
+    src="{{ item }}"
+    dest="/opt/"
+    mode=u=r,g=r
+  with_items: "{{ projects }}"
+- name: "Running npm install"
+  command: bash -c "npm install || npm install"
+    chdir="/opt/{{ item }}"
+    creates="/opt/{{ item }}/node-modules"
+  with_items: "{{ projects }}"
+- name: "Seting up Database"
+  command: bash -c "node setup.js"
+    chdir="/opt/pixelgram-db"
+- name: "Build pixelgrm project"
+  command: bash -c "npm run build"
+    chdir="/opt/pixelgram-frontend"
+- name: "Installing upstart scripts"
+  copy:
+    src="upstart/{{ item }}.conf"
+    dest="/etc/init"
+    mode=u=r,g=r
+  with_items: "{{ services }}"
+- name: "Running pixelgram services"
+  service:
+    name={{ item }}
+    state=restarted
+    enabled=yes
+  with_items: "{{ services }}"
+- name: "Copying NGINX confnig files"
+  copy:
+    src="nginx/{{ item }}"
+    dest="/etc/nginx/sites-enabled/{{ item }}"
+    mode=u=r,g=r,o=r
+  with_items:
+    - pixelgram-frontend.conf
+    - pixelgram-api.conf
+    - pixelgram-ws.conf
+- name: "Restarting NGINX service"
+  service:
+    name=nginx
+    state=reloaded

@@ -1,0 +1,20 @@
+---
+- hosts: pixelgram_*
+  pre_tasks:
+    - name: Update apt repository
+      apt: update_cache=yes
+  roles:
+    - pixelgram
+  vars:
+    - projects:
+      - pixelgram-db
+      - pixelgram-client
+      - pixelgram-api
+      - pixelgram-ws
+      - pixelgram-frontend
+    - services:
+      - pixelgram-api-pictures
+      - pixelgram-api-users
+      - pixelgram-api-auth
+      - pixelgram-ws
+      - pixelgram-frontend

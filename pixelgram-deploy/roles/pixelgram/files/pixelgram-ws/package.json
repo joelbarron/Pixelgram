@@ -1,0 +1,32 @@
+{
+  "name": "pixelgram-ws",
+  "version": "1.0.0",
+  "description": "Pixelgram Real time Backend",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joelbarron/Pixelgram"
+  },
+  "keywords": [
+    "Pixelgram",
+    "ws",
+    "real time"
+  ],
+  "author": "Joel Barrón <jbarron_web@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "rethinkdb": "^2.3.3",
+    "socket.io": "^1.4.8"
+  }
+}

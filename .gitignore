@@ -1,1 +1,6 @@
-/env.sh
+/pixelgram-api/node_modules/
+/pixelgram-client/node_modules/
+/pixelgram-ws/node_modules/
+/pixelgram-frontend/node_modules/
+/pixelgram-deploy/roles/pixelgram/files/upstart/
+/pixelgram-deploy/ssh/*
