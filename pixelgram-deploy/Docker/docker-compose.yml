@@ -16,7 +16,7 @@ pixelgram-setup:
   links:
     - rethinkdb-pixelgram
   env_file:
-    - ./production.env
+    - ./env/production.env
   command: "node setup.js"
 #API PICTURES
 pixelgram-api-pictures:
@@ -30,7 +30,7 @@ pixelgram-api-pictures:
   links:
     - rethinkdb-pixelgram
   env_file:
-    - ./production.env
+    - ./env/production.env
   command: "npm run pictures"
 #API USERS
 pixelgram-api-users:
@@ -44,7 +44,7 @@ pixelgram-api-users:
   links:
     - rethinkdb-pixelgram
   env_file:
-    - ./production.env
+    - ./env/production.env
   command: "npm run users"
 #API AUTH
 pixelgram-api-auth:
@@ -58,7 +58,7 @@ pixelgram-api-auth:
   links:
     - rethinkdb-pixelgram
   env_file:
-    - ./production.env
+    - ./env/production.env
   command: "npm run auth"
 #WEB SOCKETS
 pixelgram-ws:
@@ -72,7 +72,7 @@ pixelgram-ws:
   links:
     - rethinkdb-pixelgram
   env_file:
-    - ./production.env
+    - ./env/production.env
   command: "npm start"
 #Frontend
 pixelgram-frontend:
@@ -84,5 +84,5 @@ pixelgram-frontend:
   ports:
     - "9504:5050"
   env_file:
-    - ./production.env
+    - ./env/production.env
   command: "npm start"

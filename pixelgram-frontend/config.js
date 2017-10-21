@@ -21,7 +21,7 @@ const config = {
   },
   secret: process.env.PIXELGRAM_SECRET || 'pixel',
   port: process.env.PORT ||5050,
-  socketIoUrl: process.env.SOCKET_IO_URL || 'http://localhost:5151'
+  socketIoUrl: process.env.SOCKET_IO_URL || 'http://pixelgram-ws.usbix.com.mx'
 }
 
 // configuracion para desarrollo

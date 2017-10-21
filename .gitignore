@@ -6,5 +6,5 @@
 /pixelgram-frontend/env.sh
 /pixelgram-deploy/vagrant_ansible/roles/pixelgram/files/upstart/
 /pixelgram-deploy/vagrant_ansible/ssh/*
-/pixelgram-deploy/Docker/production.env
-/pixelgram-deploy/Docker/develop.env
+/pixelgram-deploy/Docker/env/production.env
+/pixelgram-deploy/Docker/env/develop.env
