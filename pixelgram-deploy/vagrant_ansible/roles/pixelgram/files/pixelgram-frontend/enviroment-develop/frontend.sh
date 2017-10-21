@@ -1,0 +1,13 @@
+export NODE_ENV="develop"
+export AWS_ACCESS_KEY="AKIAJ3NFSU32X33E2HCA"
+export AWS_SECRET_KEY="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"
+export ENDPOINT_PICTURES_URL="http://localhost:5000"
+export ENDPOINT_USERS_URL="http://localhost:5001"
+export ENDPOINT_AUTH_URL="http://localhost:5002"
+export FACEBOOK_CLIENT_ID="589559601433465"
+export FACEBOOK_CLIENT_SECRET="3bf9af6d2495faf4382a93d763c5b46c"
+export FACEBOOK_CALLBACK_URL="http://pixelgram.test:5050/auth/facebook/callback"
+export PIXELGRAM_SECRET="pixel"
+export SOCKET_IO_URL="http://localhost:5151"
+export PORT="5050"
+npm run build

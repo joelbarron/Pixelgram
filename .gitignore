@@ -4,5 +4,7 @@
 /pixelgram-ws/node_modules/
 /pixelgram-frontend/node_modules/
 /pixelgram-frontend/env.sh
-/pixelgram-deploy/roles/pixelgram/files/upstart/
-/pixelgram-deploy/ssh/*
+/pixelgram-deploy/vagrant_ansible/roles/pixelgram/files/upstart/
+/pixelgram-deploy/vagrant_ansible/ssh/*
+/pixelgram-deploy/Docker/production.env
+/pixelgram-deploy/Docker/develop.env

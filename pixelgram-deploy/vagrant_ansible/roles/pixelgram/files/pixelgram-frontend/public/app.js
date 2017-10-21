@@ -2587,7 +2587,7 @@ module.exports = hyperx(belCreateElement, {comments: true})
 module.exports.default = module.exports
 module.exports.createElement = belCreateElement
 
-},{"global/document":379,"hyperx":385,"on-load":410}],34:[function(require,module,exports){
+},{"global/document":379,"hyperx":385,"on-load":409}],34:[function(require,module,exports){
 (function (global){
 /**
  * Create a blob builder even when vendor prefixes exist
@@ -10600,7 +10600,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./transport":367,"./transports/index":368,"component-emitter":38,"debug":374,"engine.io-parser":377,"indexof":386,"parsejson":414,"parseqs":415,"parseuri":416}],367:[function(require,module,exports){
+},{"./transport":367,"./transports/index":368,"component-emitter":38,"debug":374,"engine.io-parser":377,"indexof":386,"parsejson":413,"parseqs":414,"parseuri":415}],367:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -11726,7 +11726,7 @@ Polling.prototype.uri = function () {
   return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
 };
 
-},{"../transport":367,"component-inherit":39,"debug":374,"engine.io-parser":377,"parseqs":415,"xmlhttprequest-ssl":373,"yeast":442}],372:[function(require,module,exports){
+},{"../transport":367,"component-inherit":39,"debug":374,"engine.io-parser":377,"parseqs":414,"xmlhttprequest-ssl":373,"yeast":441}],372:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -12015,7 +12015,7 @@ WS.prototype.check = function () {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../transport":367,"component-inherit":39,"debug":374,"engine.io-parser":377,"parseqs":415,"ws":35,"yeast":442}],373:[function(require,module,exports){
+},{"../transport":367,"component-inherit":39,"debug":374,"engine.io-parser":377,"parseqs":414,"ws":35,"yeast":441}],373:[function(require,module,exports){
 (function (global){
 // browser shim for xmlhttprequest module
 
@@ -13203,7 +13203,7 @@ exports.decodePayloadAsBinary = function (data, binaryType, callback) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./keys":378,"after":2,"arraybuffer.slice":3,"base64-arraybuffer":32,"blob":34,"has-binary":381,"wtf-8":441}],378:[function(require,module,exports){
+},{"./keys":378,"after":2,"arraybuffer.slice":3,"base64-arraybuffer":32,"blob":34,"has-binary":381,"wtf-8":440}],378:[function(require,module,exports){
 
 /**
  * Gets the keys for an object.
@@ -22190,34 +22190,9 @@ var morphdom = morphdomFactory(morphAttrs);
 module.exports = morphdom;
 
 },{}],409:[function(require,module,exports){
-assert.notEqual = notEqual
-assert.notOk = notOk
-assert.equal = equal
-assert.ok = assert
-
-module.exports = assert
-
-function equal (a, b, m) {
-  assert(a == b, m) // eslint-disable-line eqeqeq
-}
-
-function notEqual (a, b, m) {
-  assert(a != b, m) // eslint-disable-line eqeqeq
-}
-
-function notOk (t, m) {
-  assert(!t, m)
-}
-
-function assert (t, m) {
-  if (!t) throw new Error(m || 'AssertionError')
-}
-
-},{}],410:[function(require,module,exports){
 /* global MutationObserver */
 var document = require('global/document')
 var window = require('global/window')
-var assert = require('assert')
 var watch = Object.create(null)
 var KEY_ID = 'onloadid' + (new Date() % 9e6).toString(36)
 var KEY_ATTR = 'data-' + KEY_ID
@@ -22255,7 +22230,6 @@ function beginObserve (observer) {
 }
 
 module.exports = function onload (el, on, off, caller) {
-  assert(document.body, 'on-load: will not work prior to DOMContentLoaded')
   on = on || function () {}
   off = off || function () {}
   el.setAttribute(KEY_ATTR, 'o' + INDEX)
@@ -22314,7 +22288,7 @@ function eachMutation (nodes, fn) {
   }
 }
 
-},{"assert":409,"global/document":379,"global/window":380}],411:[function(require,module,exports){
+},{"global/document":379,"global/window":380}],410:[function(require,module,exports){
 (function (process){
   /* globals require, module */
 
@@ -22940,9 +22914,9 @@ function eachMutation (nodes, fn) {
   page.sameOrigin = sameOrigin;
 
 }).call(this,require('_process'))
-},{"_process":36,"path-to-regexp":413}],412:[function(require,module,exports){
+},{"_process":36,"path-to-regexp":412}],411:[function(require,module,exports){
 arguments[4][382][0].apply(exports,arguments)
-},{"dup":382}],413:[function(require,module,exports){
+},{"dup":382}],412:[function(require,module,exports){
 var isarray = require('isarray')
 
 /**
@@ -23334,7 +23308,7 @@ function pathToRegexp (path, keys, options) {
   return stringToRegexp(path, keys, options)
 }
 
-},{"isarray":412}],414:[function(require,module,exports){
+},{"isarray":411}],413:[function(require,module,exports){
 (function (global){
 /**
  * JSON parse.
@@ -23369,7 +23343,7 @@ module.exports = function parsejson(data) {
   }
 };
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],415:[function(require,module,exports){
+},{}],414:[function(require,module,exports){
 /**
  * Compiles a querystring
  * Returns string representation of the object
@@ -23408,7 +23382,7 @@ exports.decode = function(qs){
   return qry;
 };
 
-},{}],416:[function(require,module,exports){
+},{}],415:[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -23449,7 +23423,7 @@ module.exports = function parseuri(str) {
     return uri;
 };
 
-},{}],417:[function(require,module,exports){
+},{}],416:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -23560,7 +23534,7 @@ exports.connect = lookup;
 exports.Manager = require('./manager');
 exports.Socket = require('./socket');
 
-},{"./manager":418,"./socket":420,"./url":421,"debug":422,"socket.io-parser":426}],418:[function(require,module,exports){
+},{"./manager":417,"./socket":419,"./url":420,"debug":421,"socket.io-parser":425}],417:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -24122,7 +24096,7 @@ Manager.prototype.onreconnect = function () {
   this.emitAll('reconnect', attempt);
 };
 
-},{"./on":419,"./socket":420,"backo2":31,"component-bind":37,"component-emitter":38,"debug":422,"engine.io-client":364,"indexof":386,"socket.io-parser":426}],419:[function(require,module,exports){
+},{"./on":418,"./socket":419,"backo2":31,"component-bind":37,"component-emitter":38,"debug":421,"engine.io-client":364,"indexof":386,"socket.io-parser":425}],418:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -24148,7 +24122,7 @@ function on (obj, ev, fn) {
   };
 }
 
-},{}],420:[function(require,module,exports){
+},{}],419:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -24569,7 +24543,7 @@ Socket.prototype.compress = function (compress) {
   return this;
 };
 
-},{"./on":419,"component-bind":37,"component-emitter":38,"debug":422,"has-binary":381,"socket.io-parser":426,"to-array":440}],421:[function(require,module,exports){
+},{"./on":418,"component-bind":37,"component-emitter":38,"debug":421,"has-binary":381,"socket.io-parser":425,"to-array":439}],420:[function(require,module,exports){
 (function (global){
 
 /**
@@ -24648,13 +24622,13 @@ function url (uri, loc) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"debug":422,"parseuri":416}],422:[function(require,module,exports){
+},{"debug":421,"parseuri":415}],421:[function(require,module,exports){
 arguments[4][374][0].apply(exports,arguments)
-},{"./debug":423,"_process":36,"dup":374}],423:[function(require,module,exports){
+},{"./debug":422,"_process":36,"dup":374}],422:[function(require,module,exports){
 arguments[4][375][0].apply(exports,arguments)
-},{"dup":375,"ms":424}],424:[function(require,module,exports){
+},{"dup":375,"ms":423}],423:[function(require,module,exports){
 arguments[4][376][0].apply(exports,arguments)
-},{"dup":376}],425:[function(require,module,exports){
+},{"dup":376}],424:[function(require,module,exports){
 (function (global){
 /*global Blob,File*/
 
@@ -24799,7 +24773,7 @@ exports.removeBlobs = function(data, callback) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./is-buffer":427,"isarray":431}],426:[function(require,module,exports){
+},{"./is-buffer":426,"isarray":430}],425:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -25205,7 +25179,7 @@ function error(data){
   };
 }
 
-},{"./binary":425,"./is-buffer":427,"component-emitter":428,"debug":429,"json3":407}],427:[function(require,module,exports){
+},{"./binary":424,"./is-buffer":426,"component-emitter":427,"debug":428,"json3":407}],426:[function(require,module,exports){
 (function (global){
 
 module.exports = isBuf;
@@ -25222,7 +25196,7 @@ function isBuf(obj) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],428:[function(require,module,exports){
+},{}],427:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -25388,7 +25362,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],429:[function(require,module,exports){
+},{}],428:[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -25558,7 +25532,7 @@ function localstorage(){
   } catch (e) {}
 }
 
-},{"./debug":430}],430:[function(require,module,exports){
+},{"./debug":429}],429:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -25757,9 +25731,9 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":432}],431:[function(require,module,exports){
+},{"ms":431}],430:[function(require,module,exports){
 arguments[4][382][0].apply(exports,arguments)
-},{"dup":382}],432:[function(require,module,exports){
+},{"dup":382}],431:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -25886,7 +25860,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],433:[function(require,module,exports){
+},{}],432:[function(require,module,exports){
 /**
  * Root reference for iframes.
  */
@@ -26794,7 +26768,7 @@ request.put = function(url, data, fn){
   return req;
 };
 
-},{"./is-object":434,"./request-base":435,"./response-base":436,"./should-retry":437,"component-emitter":38}],434:[function(require,module,exports){
+},{"./is-object":433,"./request-base":434,"./response-base":435,"./should-retry":436,"component-emitter":38}],433:[function(require,module,exports){
 /**
  * Check if `obj` is an object.
  *
@@ -26809,7 +26783,7 @@ function isObject(obj) {
 
 module.exports = isObject;
 
-},{}],435:[function(require,module,exports){
+},{}],434:[function(require,module,exports){
 /**
  * Module of mixed-in functions shared between node and client code
  */
@@ -27431,7 +27405,7 @@ RequestBase.prototype._setTimeouts = function() {
   }
 }
 
-},{"./is-object":434}],436:[function(require,module,exports){
+},{"./is-object":433}],435:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -27566,7 +27540,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
     this.notFound = 404 == status;
 };
 
-},{"./utils":438}],437:[function(require,module,exports){
+},{"./utils":437}],436:[function(require,module,exports){
 var ERROR_CODES = [
   'ECONNRESET',
   'ETIMEDOUT',
@@ -27591,7 +27565,7 @@ module.exports = function shouldRetry(err, res) {
   return false;
 };
 
-},{}],438:[function(require,module,exports){
+},{}],437:[function(require,module,exports){
 
 /**
  * Return the mime type for the given `str`.
@@ -27660,7 +27634,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
   return header;
 };
-},{}],439:[function(require,module,exports){
+},{}],438:[function(require,module,exports){
 
 var orig = document.title;
 
@@ -27683,7 +27657,7 @@ exports.reset = function(){
   set(orig);
 };
 
-},{}],440:[function(require,module,exports){
+},{}],439:[function(require,module,exports){
 module.exports = toArray
 
 function toArray(list, index) {
@@ -27698,7 +27672,7 @@ function toArray(list, index) {
     return array
 }
 
-},{}],441:[function(require,module,exports){
+},{}],440:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/wtf8 v1.0.0 by @mathias */
 ;(function(root) {
@@ -27936,7 +27910,7 @@ function toArray(list, index) {
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],442:[function(require,module,exports){
+},{}],441:[function(require,module,exports){
 'use strict';
 
 var alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')
@@ -28006,7 +27980,7 @@ yeast.encode = encode;
 yeast.decode = decode;
 module.exports = yeast;
 
-},{}],443:[function(require,module,exports){
+},{}],442:[function(require,module,exports){
 var bel = require('bel') // turns template tag into DOM elements
 var morphdom = require('morphdom') // efficiently diffs + morphs two DOM elements
 var defaultEvents = require('./update-events.js') // default events to be copied when dom elements update
@@ -28050,7 +28024,7 @@ module.exports.update = function (fromNode, toNode, opts) {
   }
 }
 
-},{"./update-events.js":444,"bel":33,"morphdom":408}],444:[function(require,module,exports){
+},{"./update-events.js":443,"bel":33,"morphdom":408}],443:[function(require,module,exports){
 module.exports = [
   // attribute events (can be set with attributes)
   'onclick',
@@ -28088,7 +28062,7 @@ module.exports = [
   'onfocusout'
 ]
 
-},{}],445:[function(require,module,exports){
+},{}],444:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n<div class="container">\n  <div class="row">\n    <div class="col s12 l3 center-align">\n      <!-- Dropdown Trigger-->\n      <a href="#" data-activates="dropdown1" class="dropdown-button btn btn-flat">', '</a>\n      <!-- Dropdown Structure-->\n      <ul id="dropdown1" class="dropdown-content">\n        <li><a href="" onclick=', ' >', '</a></li>\n        <li><a href="" onclick=', ' >', '</a></li>\n      </ul>\n    </div>\n    <div class="col s12 l3 push-l6 center-align">\xA9 2017 Pixelgram</div>\n  </div>\n</div>\n'], ['\n<div class="container">\n  <div class="row">\n    <div class="col s12 l3 center-align">\n      <!-- Dropdown Trigger-->\n      <a href="#" data-activates="dropdown1" class="dropdown-button btn btn-flat">', '</a>\n      <!-- Dropdown Structure-->\n      <ul id="dropdown1" class="dropdown-content">\n        <li><a href="" onclick=', ' >', '</a></li>\n        <li><a href="" onclick=', ' >', '</a></li>\n      </ul>\n    </div>\n    <div class="col s12 l3 push-l6 center-align">\xA9 2017 Pixelgram</div>\n  </div>\n</div>\n']);
@@ -28108,7 +28082,7 @@ function lang(locale) {
 
 document.body.appendChild(el);
 
-},{"../translate":459,"yo-yo":443}],446:[function(require,module,exports){
+},{"../translate":458,"yo-yo":442}],445:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n    <div class="col s3 m5 push-s9 push-m1">\n        <div class="row">\n            <div class="col s3">\n                <i class="fa fa-user-o" aria-hidden="true"></i>\n            </div>\n            <div class="col s9">\n                <span class="flow-text" style="font-size:0.9rem;">', '</span>\n                <a href="/logout" rel="external" class="btn btn-large btn-flat">', '</a>\n            </div>\n        </div>\n    </div>\n    '], ['\n    <div class="col s3 m5 push-s9 push-m1">\n        <div class="row">\n            <div class="col s3">\n                <i class="fa fa-user-o" aria-hidden="true"></i>\n            </div>\n            <div class="col s9">\n                <span class="flow-text" style="font-size:0.9rem;">', '</span>\n                <a href="/logout" rel="external" class="btn btn-large btn-flat">', '</a>\n            </div>\n        </div>\n    </div>\n    ']),
@@ -28149,7 +28123,7 @@ module.exports = function header(ctx, next) {
 
 // dropdown-button btn-user-options" data-activates="drop-user
 
-},{"../translate":459,"empty-element":363,"yo-yo":443}],447:[function(require,module,exports){
+},{"../translate":458,"empty-element":363,"yo-yo":442}],446:[function(require,module,exports){
 'use strict';
 
 // asignar librerias a variables
@@ -28223,7 +28197,7 @@ function loadPictures(ctx, next) {
   }, null, this);
 }
 
-},{"../../config":1,"../header":446,"../picture-card":452,"../utils":462,"./template":448,"axios":4,"empty-element":363,"page":411,"socket.io-client":417,"title":439}],448:[function(require,module,exports){
+},{"../../config":1,"../header":445,"../picture-card":451,"../utils":461,"./template":447,"axios":4,"empty-element":363,"page":410,"socket.io-client":416,"title":438}],447:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n  <div class="container timeline">\n    <div class="row">\n      <div class="col s12 m10 offset-m1 l8 offset-l2 center-align">\n        <form enctype="multipart/form-data" class="form-upload" id="formUpload" onsubmit=', '>\n          <div id="fileName" class="file-upload btn btn-flat cyan">\n            <span><i class="fa fa-camera" aria-hidden="true"></i>', '</span>\n            <input name="picture" id="file" type="file" class="upload" onchange=', '/>\n          </div>\n          <button id="btnUpload" type="submit" class="btn btn-flat cyan hide">', '</button>\n          <button id="btnCancel" type="button" class="btn btn-flat red hide" onclick=', '><i class="fa fa-times" aria-hidden="true"></i></button>\n        </form>\n      </div>\n    </div>\n    <div class="row">\n    <div id="pictures-container" class="col s12 m10 offset-m1 l6 offset-l3">\n\n    ', '\n\n    </div>\n    </div>\n  </div>\n  '], ['\n  <div class="container timeline">\n    <div class="row">\n      <div class="col s12 m10 offset-m1 l8 offset-l2 center-align">\n        <form enctype="multipart/form-data" class="form-upload" id="formUpload" onsubmit=', '>\n          <div id="fileName" class="file-upload btn btn-flat cyan">\n            <span><i class="fa fa-camera" aria-hidden="true"></i>', '</span>\n            <input name="picture" id="file" type="file" class="upload" onchange=', '/>\n          </div>\n          <button id="btnUpload" type="submit" class="btn btn-flat cyan hide">', '</button>\n          <button id="btnCancel" type="button" class="btn btn-flat red hide" onclick=', '><i class="fa fa-times" aria-hidden="true"></i></button>\n        </form>\n      </div>\n    </div>\n    <div class="row">\n    <div id="pictures-container" class="col s12 m10 offset-m1 l6 offset-l3">\n\n    ', '\n\n    </div>\n    </div>\n  </div>\n  ']);
@@ -28286,7 +28260,7 @@ module.exports = function (pictures) {
   return layout(el);
 };
 
-},{"../layout":451,"../picture-card":452,"../translate":459,"axios":4,"superagent":433,"yo-yo":443}],449:[function(require,module,exports){
+},{"../layout":450,"../picture-card":451,"../translate":458,"axios":4,"superagent":432,"yo-yo":442}],448:[function(require,module,exports){
 'use strict';
 
 require('babel-polyfill');
@@ -28300,7 +28274,7 @@ require('./footer');
 
 page();
 
-},{"./footer":445,"./homepage":447,"./signin":453,"./signup":455,"./user-page":460,"babel-polyfill":29,"page":411}],450:[function(require,module,exports){
+},{"./footer":444,"./homepage":446,"./signin":452,"./signup":454,"./user-page":459,"babel-polyfill":29,"page":410}],449:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n    <div class="container landing">\n      <div class="row">\n        <div class="col s10 push-s1">\n          <div class="row">\n            <div class="col m5 hidde-on-small-only">\n              <img src="/iphone.png" alt="" class="iphone"/>\n            </div>\n             ', '\n          </div>\n        </div>\n      </div>\n    </div>\n    '], ['\n    <div class="container landing">\n      <div class="row">\n        <div class="col s10 push-s1">\n          <div class="row">\n            <div class="col m5 hidde-on-small-only">\n              <img src="/iphone.png" alt="" class="iphone"/>\n            </div>\n             ', '\n          </div>\n        </div>\n      </div>\n    </div>\n    ']);
@@ -28314,7 +28288,7 @@ module.exports = function landing(box) {
   return yo(_templateObject, box);
 };
 
-},{"yo-yo":443}],451:[function(require,module,exports){
+},{"yo-yo":442}],450:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n    <div class="content">\n      ', '\n    </div>\n    '], ['\n    <div class="content">\n      ', '\n    </div>\n    ']);
@@ -28331,7 +28305,7 @@ module.exports = function layout(content) {
     return yo(_templateObject, content);
 };
 
-},{"../translate":459,"yo-yo":443}],452:[function(require,module,exports){
+},{"../translate":458,"yo-yo":442}],451:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n    <div class="card">\n      <div class="card-image">\n        <img class="activator" src="', '" ondblclick=', '/">\n        <i class="fa fa-heart like-heart ', '"></i>\n      </div>\n      <div class="card-content">\n        <a class="card-title" href="/', '" rel="external">\n          <img src="', '" class="avatar" />\n          <span class="username">', '</span>\n        </a>\n        <small class="right time">', '</small>\n        <p class="', '">\n          <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n          <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n          <span class="left likes">', '</span>\n        </p>\n      </div>\n    </div>\n    '], ['\n    <div class="card">\n      <div class="card-image">\n        <img class="activator" src="', '" ondblclick=', '/">\n        <i class="fa fa-heart like-heart ', '"></i>\n      </div>\n      <div class="card-content">\n        <a class="card-title" href="/', '" rel="external">\n          <img src="', '" class="avatar" />\n          <span class="username">', '</span>\n        </a>\n        <small class="right time">', '</small>\n        <p class="', '">\n          <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n          <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n          <span class="left likes">', '</span>\n        </p>\n      </div>\n    </div>\n    ']);
@@ -28386,7 +28360,7 @@ module.exports = function (pic) {
   return el;
 };
 
-},{"../translate":459,"yo-yo":443}],453:[function(require,module,exports){
+},{"../translate":458,"yo-yo":442}],452:[function(require,module,exports){
 'use strict';
 
 // asignar librerias a variables
@@ -28403,7 +28377,7 @@ page('/signin', function (ctx, next) {
       empty(main).appendChild(template);
 });
 
-},{"./template":454,"empty-element":363,"page":411,"title":439}],454:[function(require,module,exports){
+},{"./template":453,"empty-element":363,"page":410,"title":438}],453:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n<div class="col s12 m7">\n  <div class="row">\n    <div class="signup-box">\n      <h1 class="platzigram">Pixelgram</h1>\n      <form class="signup-form" action="/login" method="POST">\n        <div class="section">\n        <a href="/auth/facebook" rel="external" class="btn btn-fb hidden-on-small-only">', '</a>\n        <a href="/auth/facebook" rel="external" class="btn btn-fb hide-on-med-and-up">', '</a></div>\n        <div class="divider"></div>\n        <div class="section">\n          <input type="text" name="username" value="" placeholder="', '"/>\n          <input type="password" name="password" value="" placeholder="', '"/>\n          <button type="submit" name="button" class="btn waves-effect waves-light btn-signup">', '</button>\n        </div>\n      </form>\n    </div>\n  </div>\n<div class="row">\n <div class="login-box">', ' <a href="/signup">', '</a></div>\n</div>\n'], ['\n<div class="col s12 m7">\n  <div class="row">\n    <div class="signup-box">\n      <h1 class="platzigram">Pixelgram</h1>\n      <form class="signup-form" action="/login" method="POST">\n        <div class="section">\n        <a href="/auth/facebook" rel="external" class="btn btn-fb hidden-on-small-only">', '</a>\n        <a href="/auth/facebook" rel="external" class="btn btn-fb hide-on-med-and-up">', '</a></div>\n        <div class="divider"></div>\n        <div class="section">\n          <input type="text" name="username" value="" placeholder="', '"/>\n          <input type="password" name="password" value="" placeholder="', '"/>\n          <button type="submit" name="button" class="btn waves-effect waves-light btn-signup">', '</button>\n        </div>\n      </form>\n    </div>\n  </div>\n<div class="row">\n <div class="login-box">', ' <a href="/signup">', '</a></div>\n</div>\n']);
@@ -28420,7 +28394,7 @@ var signinForm = yo(_templateObject, translate.message('signup.facebook'), trans
 
 module.exports = landing(signinForm);
 
-},{"../landing":450,"../translate":459,"yo-yo":443}],455:[function(require,module,exports){
+},{"../landing":449,"../translate":458,"yo-yo":442}],454:[function(require,module,exports){
 'use strict';
 
 // asignar librerias a variables
@@ -28438,7 +28412,7 @@ page('/signup', function (ctx, next) {
       empty(main).appendChild(template);
 });
 
-},{"./template":456,"empty-element":363,"page":411,"title":439}],456:[function(require,module,exports){
+},{"./template":455,"empty-element":363,"page":410,"title":438}],455:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n<div class="col s12 m7">\n  <div class="row">\n    <div class="signup-box">\n      <h1 class="platzigram">Pixelgram</h1>\n      <form class="signup-form" action="/signup" method="POST">\n        <h2>', '</h2>\n        <div class="section">\n        <a href="/auth/facebook" rel="external" class="btn btn-fb hidden-on-small-only">', '</a>\n        <a href="/auth/facebook" rel="external" class="btn btn-fb hide-on-med-and-up">', '</a></div>\n        <div class="divider"></div>\n        <div class="section">\n          <input type="email" name="email" value="" placeholder="', '"/>\n          <input type="text" name="username" value="" placeholder="', '"/>\n          <input type="password" name="password" value="" placeholder="', '"/>\n          <button type="submit" name="button" class="btn waves-effect waves-light btn-signup">', '</button>\n        </div>\n      </form>\n  </div>\n</div>\n<div class="row">\n <div class="login-box">', ' <a href="/signin">', '</a></div>\n</div>\n'], ['\n<div class="col s12 m7">\n  <div class="row">\n    <div class="signup-box">\n      <h1 class="platzigram">Pixelgram</h1>\n      <form class="signup-form" action="/signup" method="POST">\n        <h2>', '</h2>\n        <div class="section">\n        <a href="/auth/facebook" rel="external" class="btn btn-fb hidden-on-small-only">', '</a>\n        <a href="/auth/facebook" rel="external" class="btn btn-fb hide-on-med-and-up">', '</a></div>\n        <div class="divider"></div>\n        <div class="section">\n          <input type="email" name="email" value="" placeholder="', '"/>\n          <input type="text" name="username" value="" placeholder="', '"/>\n          <input type="password" name="password" value="" placeholder="', '"/>\n          <button type="submit" name="button" class="btn waves-effect waves-light btn-signup">', '</button>\n        </div>\n      </form>\n  </div>\n</div>\n<div class="row">\n <div class="login-box">', ' <a href="/signin">', '</a></div>\n</div>\n']);
@@ -28455,7 +28429,7 @@ var signupForm = yo(_templateObject, translate.message('signup.subheading'), tra
 
 module.exports = landing(signupForm);
 
-},{"../landing":450,"../translate":459,"yo-yo":443}],457:[function(require,module,exports){
+},{"../landing":449,"../translate":458,"yo-yo":442}],456:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -28479,7 +28453,7 @@ module.exports = {
           'upload': 'Upload'
 };
 
-},{}],458:[function(require,module,exports){
+},{}],457:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -28503,7 +28477,7 @@ module.exports = {
   'upload': 'Subir'
 };
 
-},{}],459:[function(require,module,exports){
+},{}],458:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -28540,7 +28514,7 @@ module.exports = {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./en-US":457,"./es":458,"intl":404,"intl-messageformat":389,"intl-relativeformat":398,"intl-relativeformat/dist/locale-data/en.js":396,"intl-relativeformat/dist/locale-data/es.js":397}],460:[function(require,module,exports){
+},{"./en-US":456,"./es":457,"intl":404,"intl-messageformat":389,"intl-relativeformat":398,"intl-relativeformat/dist/locale-data/en.js":396,"intl-relativeformat/dist/locale-data/es.js":397}],459:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -28604,7 +28578,7 @@ function loadUser(ctx, next) {
     }, null, this);
 }
 
-},{"../header":446,"../utils":462,"./template":461,"axios":4,"empty-element":363,"page":411,"title":439}],461:[function(require,module,exports){
+},{"../header":445,"../utils":461,"./template":460,"axios":4,"empty-element":363,"page":410,"title":438}],460:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n  <div class="container user-page">\n  <div class="row">\n    <div class="col s12 m10 offset-m1 l8 offset-l2 center-align heading">\n      <div class="row">\n        <div class="col s12 m10 offset-m1 l3 offset-l3 center">\n          <img src="', '" alt="', '" class="responsive-img circle" />\n        </div>\n        <div class="col s12 m10 offset-m1 l6 left-align">\n          <h2 class="hide-on-large-only center-align">', '</h2>\n          <h2 class="hide-on-med-and-down left-align">', '</h2>\n        </div>\n      </div>\n    </div>\n    <div class="row">\n      ', '\n    </div>\n  </div>\n</div>\n  '], ['\n  <div class="container user-page">\n  <div class="row">\n    <div class="col s12 m10 offset-m1 l8 offset-l2 center-align heading">\n      <div class="row">\n        <div class="col s12 m10 offset-m1 l3 offset-l3 center">\n          <img src="', '" alt="', '" class="responsive-img circle" />\n        </div>\n        <div class="col s12 m10 offset-m1 l6 left-align">\n          <h2 class="hide-on-large-only center-align">', '</h2>\n          <h2 class="hide-on-med-and-down left-align">', '</h2>\n        </div>\n      </div>\n    </div>\n    <div class="row">\n      ', '\n    </div>\n  </div>\n</div>\n  ']),
@@ -28628,7 +28602,7 @@ module.exports = function userPage(user) {
   return layout(el);
 };
 
-},{"../layout":451,"../translate":459,"axios":4,"superagent":433,"yo-yo":443}],462:[function(require,module,exports){
+},{"../layout":450,"../translate":458,"axios":4,"superagent":432,"yo-yo":442}],461:[function(require,module,exports){
 'use strict';
 
 var axios = require('axios');
@@ -28675,4 +28649,4 @@ function loadAuth(ctx, next) {
 
 exports.loadAuth = loadAuth;
 
-},{"axios":4}]},{},[449]);
+},{"axios":4}]},{},[448]);
