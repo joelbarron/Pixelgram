@@ -1,0 +1,28 @@
+2017-10-25T00:26:23.570518907 0.139836s notice: Recursively removing directory /data/rethinkdb_data/tmp
+2017-10-25T00:26:23.578345715 0.147665s notice: Initializing directory /data/rethinkdb_data
+2017-10-25T00:26:23.578743103 0.148059s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/data/rethinkdb_data' did not already exist or is empty.)
+2017-10-25T00:26:23.579047907 0.148364s notice: Running rethinkdb 2.3.5~0jessie (GCC 4.9.2)...
+2017-10-25T00:26:23.585086526 0.154404s notice: Running on Linux 4.9.49-moby x86_64
+2017-10-25T00:26:23.585382689 0.154699s notice: Loading data from directory /data/rethinkdb_data
+2017-10-25T00:26:23.626202721 0.195520s info: Automatically using cache size of 1529 MB
+2017-10-25T00:26:23.694998180 0.264314s notice: Listening for intracluster connections on port 29015
+2017-10-25T00:26:23.699548886 0.268865s notice: Listening for client driver connections on port 28015
+2017-10-25T00:26:23.699758343 0.269074s notice: Listening for administrative HTTP connections on port 8080
+2017-10-25T00:26:23.761762550 0.331079s notice: Listening on cluster addresses: 127.0.0.1, 172.17.0.3
+2017-10-25T00:26:23.768806060 0.338122s notice: Listening on driver addresses: 127.0.0.1, 172.17.0.3
+2017-10-25T00:26:23.770165171 0.339481s notice: Listening on http addresses: 127.0.0.1, 172.17.0.3
+2017-10-25T00:26:23.770183032 0.339499s notice: Server ready, "4cde6316ce77_lke" 6bd155ed-b53a-4ee3-984d-c761198e341b
+2017-10-25T00:26:24.585972309 1.155288s info: Table 045e9c68-153f-4efe-b72b-ebccd472921b: Starting a new Raft election for term 1.
+2017-10-25T00:26:24.587626045 1.156942s info: Table 045e9c68-153f-4efe-b72b-ebccd472921b: Added replica on this server.
+2017-10-25T00:26:24.588751496 1.158067s info: Table 045e9c68-153f-4efe-b72b-ebccd472921b: This server is Raft leader for term 1. Latest log index is 0.
+2017-10-25T00:26:24.610570891 1.179887s notice: A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2017-10-25T00:26:24.852519123 1.421839s info: Table 045e9c68-153f-4efe-b72b-ebccd472921b: Configuration is changing.
+2017-10-25T00:26:24.895458451 1.464774s info: Table 6e868654-3fe1-41f1-af97-fd89640d4765: Starting a new Raft election for term 1.
+2017-10-25T00:26:24.896187968 1.465504s info: Table 6e868654-3fe1-41f1-af97-fd89640d4765: Added replica on this server.
+2017-10-25T00:26:24.897612481 1.466928s info: Table 6e868654-3fe1-41f1-af97-fd89640d4765: This server is Raft leader for term 1. Latest log index is 0.
+2017-10-25T00:26:25.152125435 1.721442s info: Table 6e868654-3fe1-41f1-af97-fd89640d4765: Configuration is changing.
+2017-10-25T02:28:08.493964600 2468.006935s notice: Server got SIGTERM from pid 0, uid 0; shutting down...
+2017-10-25T02:28:08.494118200 2468.007092s notice: Shutting down client connections...
+2017-10-25T02:28:08.494465300 2468.007436s notice: All client connections closed.
+2017-10-25T02:28:08.494473300 2468.007444s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-10-25T02:28:08.502225400 2468.015197s notice: Storage engine shut down.

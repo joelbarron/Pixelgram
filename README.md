@@ -20,7 +20,7 @@ agregar las variables de entorno al archivo production.env
 #Paso 4
 hacer el build de la imagen base
 
-docker build -t pixelgram-base .
+docker build -t node-modified-joel .
 
 #Paso 5
 levantar el docker compose

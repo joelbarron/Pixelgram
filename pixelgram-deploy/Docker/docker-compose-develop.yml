@@ -1,0 +1,88 @@
+#RETHINKDB
+rethinkdb-pixelgram:
+  image: rethinkdb
+  ports:
+    - "9400:8080"
+  volumes:
+    - /Users/joel_barron/Developer/web/repositorios/pixelgram/rethinkdb/data:/data
+    - /Users/joel_barron/Developer/web/repositorios/pixelgram/rethinkdb/instances.d:/etc/rethinkdb/instances.d"
+#API SETUP
+pixelgram-setup:
+  image: "pixelgram-base"
+  user: "root"
+  volumes:
+      - /Users/joel_barron/Developer/web/repositorios/pixelgram/pixelgram-db:/root/app
+  working_dir: /root/app
+  links:
+    - rethinkdb-pixelgram
+  env_file:
+    - ./env/production.env
+  command: "node setup.js"
+#API PICTURES
+pixelgram-api-pictures:
+  image: "pixelgram-base"
+  user: "root"
+  volumes:
+      - /Users/joel_barron/Developer/web/repositorios/pixelgram/pixelgram-api:/root/app
+  working_dir: /root/app
+  ports:
+    - "9500:5000"
+  links:
+    - rethinkdb-pixelgram
+  env_file:
+    - ./env/production.env
+  command: "npm run pictures"
+#API USERS
+pixelgram-api-users:
+  image: "pixelgram-base"
+  user: "root"
+  volumes:
+      - /Users/joel_barron/Developer/web/repositorios/pixelgram/pixelgram-api:/root/app
+  working_dir: /root/app
+  ports:
+    - "9501:5001"
+  links:
+    - rethinkdb-pixelgram
+  env_file:
+    - ./env/production.env
+  command: "npm run users"
+#API AUTH
+pixelgram-api-auth:
+  image: "pixelgram-base"
+  user: "root"
+  volumes:
+    - /Users/joel_barron/Developer/web/repositorios/pixelgram/pixelgram-api:/root/app
+  working_dir: /root/app
+  ports:
+    - "9502:5002"
+  links:
+    - rethinkdb-pixelgram
+  env_file:
+    - ./env/production.env
+  command: "npm run auth"
+#WEB SOCKETS
+pixelgram-ws:
+  image: "pixelgram-base"
+  user: "root"
+  volumes:
+    - /Users/joel_barron/Developer/web/repositorios/pixelgram/pixelgram-ws:/root/app
+  working_dir: /root/app
+  ports:
+    - "9503:5151"
+  links:
+    - rethinkdb-pixelgram
+  env_file:
+    - ./env/production.env
+  command: "npm start"
+#Frontend
+pixelgram-frontend:
+  image: "pixelgram-base"
+  user: "root"
+  volumes:
+    - /Users/joel_barron/Developer/web/repositorios/pixelgram/pixelgram-frontend:/root/app
+  working_dir: /root/app
+  ports:
+    - "9504:5050"
+  env_file:
+    - ./env/production.env
+  command: "npm start"
